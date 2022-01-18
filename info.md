@@ -1,20 +1,18 @@
-# sensor.unifigateway
-High level health status of UniFi Security Gateway devices via UniFi Controller
+# UniFi Network for Home Assistant
 
-Connects to a Ubiquiti Controller instance to monitor high level health information on the setup including alerts and firmware updates
+Connects to a UniFu Network controller to monitor high level health information.
 
-**Example configuration.yaml:**
+## Example configuration
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
-  - platform: unifigateway
-    host: unifi
-    username: username
-    password: password
+  - platform: 'unifi_network'
+    host: 'unifi'
+    username: 'username'
+    password: 'password'
     monitored_conditions:
-      - www
-      - wlan
-      - alerts
-      - firmware
+      - 'alerts'
+      - 'firmware'
+      - 'wlan'
+      - 'www'
 ```
