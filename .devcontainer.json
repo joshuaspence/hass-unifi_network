@@ -1,0 +1,18 @@
+{
+  "name": "HASS UniFi Network",
+  "image": "ghcr.io/ludeeus/devcontainer/integration:stable",
+  "postCreateCommand": "container install",
+  "appPort": 8123,
+  "mounts": [
+    "source=${localWorkspaceFolder}/custom_components/unifi_network,target=/config/custom_components/unifi_network,type=bind",
+    "source=${localWorkspaceFolder}/test/configuration.yaml,target=/config/configuration.yaml,type=bind",
+  ],
+  "extensions": [
+    "ms-python.vscode-pylance",
+    "visualstudioexptteam.vscodeintellicode",
+    "redhat.vscode-yaml",
+    "keesschollaart.vscode-home-assistant",
+  ],
+  "settings": {},
+}
+
