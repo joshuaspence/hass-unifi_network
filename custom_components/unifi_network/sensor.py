@@ -1,5 +1,6 @@
 from datetime import timedelta
 import logging
+from typing import Any
 
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.const import (
@@ -10,9 +11,13 @@ from homeassistant.const import (
     CONF_USERNAME,
     CONF_VERIFY_SSL,
 )
+from homeassistant.core import HomeAssistant
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import Entity
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 from homeassistant.util import Throttle
+from pyunifi.controller import APIError, Controller
 import voluptuous as vol
 
 _LOGGER = logging.getLogger(__name__)
@@ -78,9 +83,13 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 
-def setup_platform(hass, config, add_entities, discovery_info=None):  # type: ignore[no-untyped-def]
+def setup_platform(  # type: ignore[no-untyped-def]
+    hass: HomeAssistant,
+    config: ConfigType,
+    add_entities: AddEntitiesCallback,
+    discovery_info: DiscoveryInfoType | None = None,
+):
     """Set up the Unifi sensor."""
-    from pyunifi.controller import APIError, Controller
 
     name = config.get(CONF_NAME)
     host = config.get(CONF_HOST)
@@ -110,31 +119,33 @@ def setup_platform(hass, config, add_entities, discovery_info=None):  # type: ig
 
 
 class UnifiNetworkSensor(Entity):
-    def __init__(self, hass, ctrl, name, sensor):  # type: ignore[no-untyped-def]
+    def __init__(
+        self, hass: HomeAssistant, ctrl: Controller, name: str, sensor: str
+    ) -> None:
         """Initialize the sensor."""
         self._hass = hass
         self._ctrl = ctrl
         self._sensor = sensor
-        self._state = None
-        self._alldata = None
+        self._state: str | int | None = None
+        self._alldata: Any = None
         self._data = None
-        self._attributes = {}
+        self._attributes: dict[str, Any] = {}
 
         self._attr_name = name + " " + SENSORS[sensor][0]
         self._attr_icon = SENSORS[sensor][2]
 
     @property
-    def state(self):  # type: ignore[no-untyped-def]
+    def state(self) -> str | int | None:
         """Return the state of the device."""
         return self._state
 
     @property
-    def state_attributes(self):  # type: ignore[no-untyped-def]
+    def state_attributes(self) -> dict[str, Any] | None:
         """Return the device state attributes."""
         return self._attributes
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
-    def update(self):  # type: ignore[no-untyped-def]
+    def update(self) -> None:
         """Set up the sensor."""
         from pyunifi.controller import APIError
 
