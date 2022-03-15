@@ -27,7 +27,7 @@ warn_return_any = true
 warn_unused_configs = true
 
 [tool.pytest.ini_options]
-addopts = "--cov=custom_components"
+addopts = "--quiet --quiet -p no:sugar --numprocesses=auto --cov=custom_components.unifi_network"
 testpaths = [
   "tests",
 ]
