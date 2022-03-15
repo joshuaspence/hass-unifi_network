@@ -15,7 +15,7 @@ jobs:
       - uses: 'actions/setup-python@v1'
         with:
           python-version: '3.x'
-      - run: 'pip install --constraint requirements_dev.txt black'
+      - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver black'
       - run: 'black --check .'
   flake8:
     runs-on: 'ubuntu-latest'
@@ -24,7 +24,7 @@ jobs:
       - uses: 'actions/setup-python@v1'
         with:
           python-version: '3.x'
-      - run: 'pip install --constraint requirements_dev.txt flake8'
+      - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver flake8'
       - run: 'flake8'
   isort:
     runs-on: 'ubuntu-latest'
@@ -33,5 +33,5 @@ jobs:
       - uses: 'actions/setup-python@v1'
         with:
           python-version: '3.x'
-      - run: 'pip install --constraint requirements_dev.txt isort'
+      - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver isort'
       - run: 'isort'

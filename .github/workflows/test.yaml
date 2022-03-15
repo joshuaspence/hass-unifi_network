@@ -20,5 +20,5 @@ jobs:
       - uses: 'actions/setup-python@v1'
         with:
           python-version: '${{ matrix.python-version }}'
-      - run: 'pip install --requirement requirements_test.txt'
+      - run: 'pip install --requirement=requirements_test.txt --use-feature=2020-resolver'
       - run: 'python -m pytest'
