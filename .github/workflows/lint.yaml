@@ -57,4 +57,4 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'requirements_dev.txt'
       - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver mypy'
-      - run: 'mypy --ignore-missing-imports --follow-imports=skip custom_components tests'
+      - run: 'mypy custom_components tests'

@@ -1,3 +1,6 @@
+[tool.black]
+target-version = ["py39", "py310"]
+
 [tool.isort]
 profile = "black"
 combine_as_imports = true
@@ -12,6 +15,10 @@ multi_line_output = 3
 sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 src_paths = ["custom_components", "tests"]
 use_parentheses = true
+
+[tool.mypy]
+follow_imports = "skip"
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 addopts = "--cov=custom_components"
