@@ -7,7 +7,7 @@ from custom_components.unifi_network.sensor import (
 )
 
 
-async def test_sensor(hass):
+async def test_sensor(hass):  # type: ignore[no-untyped-def]
     controller = MagicMock()
 
     sensor = UnifiNetworkSensor(hass, controller, DEFAULT_NAME, SENSOR_WWW)
