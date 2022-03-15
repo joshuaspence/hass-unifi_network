@@ -15,5 +15,5 @@ jobs:
       - uses: 'actions/setup-python@v1'
         with:
           python-version: '3.x'
-      - run: 'pip install --requirement requirements.txt'
+      - run: 'pip install --requirement requirements_test.txt'
       - run: 'pytest tests'
