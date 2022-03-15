@@ -114,22 +114,14 @@ class UnifiNetworkSensor(Entity):
         """Initialize the sensor."""
         self._hass = hass
         self._ctrl = ctrl
-        self._name = name + " " + SENSORS[sensor][0]
         self._sensor = sensor
         self._state = None
         self._alldata = None
         self._data = None
         self._attributes = {}
 
-    @property
-    def name(self):  # type: ignore[no-untyped-def]
-        """Return the name of the sensor."""
-        return self._name
-
-    @property
-    def icon(self):  # type: ignore[no-untyped-def]
-        """Icon to use in the frontend, if any."""
-        return SENSORS[self._sensor][2]
+        self._attr_name = name + " " + SENSORS[sensor][0]
+        self._attr_icon = SENSORS[sensor][2]
 
     @property
     def state(self):  # type: ignore[no-untyped-def]
