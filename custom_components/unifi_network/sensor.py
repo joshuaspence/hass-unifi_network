@@ -78,7 +78,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 
-def setup_platform(hass, config, add_entities, discovery_info=None):
+def setup_platform(hass, config, add_entities, discovery_info=None): # type: ignore[no-untyped-def]
     """Set up the Unifi sensor."""
     from pyunifi.controller import APIError, Controller
 
@@ -110,7 +110,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
 
 class UnifiNetworkSensor(Entity):
-    def __init__(self, hass, ctrl, name, sensor):
+    def __init__(self, hass, ctrl, name, sensor): # type: ignore[no-untyped-def]
         """Initialize the sensor."""
         self._hass = hass
         self._ctrl = ctrl
@@ -122,27 +122,27 @@ class UnifiNetworkSensor(Entity):
         self._attributes = {}
 
     @property
-    def name(self):
+    def name(self): # type: ignore[no-untyped-def]
         """Return the name of the sensor."""
         return self._name
 
     @property
-    def icon(self):
+    def icon(self): # type: ignore[no-untyped-def]
         """Icon to use in the frontend, if any."""
         return SENSORS[self._sensor][2]
 
     @property
-    def state(self):
+    def state(self): # type: ignore[no-untyped-def]
         """Return the state of the device."""
         return self._state
 
     @property
-    def state_attributes(self):
+    def state_attributes(self): # type: ignore[no-untyped-def]
         """Return the device state attributes."""
         return self._attributes
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
-    def update(self):
+    def update(self): # type: ignore[no-untyped-def]
         """Set up the sensor."""
         from pyunifi.controller import APIError
 

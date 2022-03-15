@@ -17,8 +17,11 @@ src_paths = ["custom_components", "tests"]
 use_parentheses = true
 
 [tool.mypy]
+disallow_untyped_defs = true
 follow_imports = "skip"
 ignore_missing_imports = true
+warn_return_any = true
+warn_unused_configs = true
 
 [tool.pytest.ini_options]
 addopts = "--cov=custom_components"
