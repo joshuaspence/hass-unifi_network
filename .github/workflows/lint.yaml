@@ -26,3 +26,12 @@ jobs:
           python-version: '3.x'
       - run: 'pip install --constraint requirements_dev.txt flake8'
       - run: 'flake8'
+  isort:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - uses: 'actions/setup-python@v1'
+        with:
+          python-version: '3.x'
+      - run: 'pip install --constraint requirements_dev.txt isort'
+      - run: 'isort'

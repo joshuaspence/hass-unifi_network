@@ -1,19 +1,14 @@
-import logging
-import voluptuous as vol
 from datetime import timedelta
+import logging
 
-from homeassistant.helpers.entity import Entity
-import homeassistant.helpers.config_validation as cv
-from homeassistant.util import Throttle
 from homeassistant.components.sensor import PLATFORM_SCHEMA
-from homeassistant.const import (
-    CONF_NAME,
-    CONF_HOST,
-    CONF_USERNAME,
-    CONF_PASSWORD,
-    CONF_MONITORED_CONDITIONS,
-    CONF_VERIFY_SSL,
-)
+from homeassistant.const import (CONF_HOST, CONF_MONITORED_CONDITIONS,
+                                 CONF_NAME, CONF_PASSWORD, CONF_USERNAME,
+                                 CONF_VERIFY_SSL,)
+import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers.entity import Entity
+from homeassistant.util import Throttle
+import voluptuous as vol
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -80,7 +75,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Set up the Unifi sensor."""
-    from pyunifi.controller import Controller, APIError
+    from pyunifi.controller import APIError, Controller
 
     name = config.get(CONF_NAME)
     host = config.get(CONF_HOST)
