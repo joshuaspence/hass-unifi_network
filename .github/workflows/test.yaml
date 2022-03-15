@@ -10,10 +10,15 @@ on:
 jobs:
   pytest:
     runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        python-version:
+          - '3.9'
+          - '3.10'
     steps:
       - uses: 'actions/checkout@v3'
       - uses: 'actions/setup-python@v1'
         with:
-          python-version: '3.x'
+          python-version: '${{ matrix.python-version }}'
       - run: 'pip install --requirement requirements_test.txt'
       - run: 'python -m pytest'
