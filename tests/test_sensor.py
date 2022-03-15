@@ -3,7 +3,6 @@ from custom_components.unifi_network.sensor import (
     SENSOR_WWW,
     UnifiNetworkSensor,
 )
-from pytest_homeassistant_custom_component.common import MockConfigEntry
 from unittest.mock import MagicMock
 
 
@@ -13,4 +12,4 @@ async def test_sensor(hass):
     sensor = UnifiNetworkSensor(hass, controller, DEFAULT_NAME, SENSOR_WWW)
     sensor.update()
 
-    assert None == sensor.state
+    assert sensor.state is None
