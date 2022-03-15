@@ -17,8 +17,10 @@ jobs:
           - '3.10'
     steps:
       - uses: 'actions/checkout@v3'
-      - uses: 'actions/setup-python@v1'
+      - uses: 'actions/setup-python@v3'
         with:
           python-version: '${{ matrix.python-version }}'
+          cache: 'pip'
+          cache-dependency-path: 'requirements_test.txt'
       - run: 'pip install --requirement=requirements_test.txt --use-feature=2020-resolver'
       - run: 'python -m pytest'
