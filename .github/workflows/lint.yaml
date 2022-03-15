@@ -58,3 +58,8 @@ jobs:
           cache-dependency-path: 'requirements_dev.txt'
       - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver mypy'
       - run: 'mypy custom_components tests'
+  yamllint:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - uses: 'ibiqlik/action-yamllint@v3'
