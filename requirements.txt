@@ -1,3 +1,4 @@
+black==22.1.0
 pytest==7.1.0
 pytest-homeassistant-custom-component==0.5.14
 pyunifi==2.21
