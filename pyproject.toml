@@ -1,4 +1,5 @@
 [tool.isort]
+profile = "black"
 combine_as_imports = true
 forced_separate = ["tests"]
 indent = "    "

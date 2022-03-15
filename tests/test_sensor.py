@@ -1,7 +1,10 @@
 from unittest.mock import MagicMock
 
-from custom_components.unifi_network.sensor import (DEFAULT_NAME, SENSOR_WWW,
-                                                    UnifiNetworkSensor,)
+from custom_components.unifi_network.sensor import (
+    DEFAULT_NAME,
+    SENSOR_WWW,
+    UnifiNetworkSensor,
+)
 
 
 async def test_sensor(hass):
