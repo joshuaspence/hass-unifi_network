@@ -16,4 +16,4 @@ jobs:
         with:
           python-version: '3.x'
       - run: 'pip install --requirement requirements_test.txt'
-      - run: 'PYTHONPATH=. pytest tests'
+      - run: 'PYTHONPATH=. pytest --cov=custom_components tests'

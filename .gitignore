@@ -1,3 +1,4 @@
 # Python
+/.coverage
 __pycache__/
 /venv/
