@@ -1,6 +1,6 @@
 {
   "name": "HASS UniFi Network",
-  "image": "ghcr.io/ludeeus/devcontainer/integration:stable",
+  "image": "ludeeus/container:integration-debian",
   "postCreateCommand": "container install",
   "appPort": 8123,
   "mounts": [
