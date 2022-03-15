@@ -31,3 +31,9 @@ addopts = "--cov=custom_components"
 testpaths = [
   "tests",
 ]
+
+[tool.semantic_release]
+upload_to_pypi = false
+upload_to_release = false
+version_pattern = "custom_components/unifi_network/manifest.json:\"version\": \"{version}\""
+version_source = "tag"

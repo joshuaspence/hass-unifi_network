@@ -4,3 +4,4 @@ flake8==4.0.1
 homeassistant
 isort==5.10.1
 mypy==0.941
+python-semantic-release==7.27.0
