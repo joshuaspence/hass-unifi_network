@@ -17,6 +17,15 @@ jobs:
           python-version: '3.x'
       - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver black'
       - run: 'black --check .'
+  codespell:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - uses: 'actions/setup-python@v1'
+        with:
+          python-version: '3.x'
+      - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver codespell'
+      - run: 'codespell'
   flake8:
     runs-on: 'ubuntu-latest'
     steps:
@@ -35,3 +44,7 @@ jobs:
           python-version: '3.x'
       - run: 'pip install --constraint=requirements_dev.txt --use-feature=2020-resolver isort'
       - run: 'isort'
+  pre-commit:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: ''

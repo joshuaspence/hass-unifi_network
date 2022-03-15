@@ -1,4 +1,5 @@
 black==22.1.0
+codespell==2.1.0
 flake8==4.0.1
 homeassistant
 isort==5.10.1
