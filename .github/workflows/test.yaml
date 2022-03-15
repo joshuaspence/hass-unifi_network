@@ -16,4 +16,4 @@ jobs:
         with:
           python-version: '3.x'
       - run: 'pip install --requirement requirements_test.txt'
-      - run: 'pytest tests'
+      - run: 'PYTHONPATH=. pytest tests'
