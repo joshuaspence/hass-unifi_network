@@ -4,7 +4,7 @@ flake8==4.0.1
 homeassistant
 isort==5.10.1
 mypy==0.941
-python-semantic-release==7.27.0
+python-semantic-release==7.27.1
 
 # Workaround for psf/black#2964.
 click<8.1.0
