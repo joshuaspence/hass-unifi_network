@@ -3,7 +3,7 @@ codespell==2.1.0
 flake8==4.0.1
 homeassistant
 isort==5.10.1
-mypy==0.941
+mypy==0.961
 python-semantic-release==7.27.0
 
 # Workaround for psf/black#2964.
